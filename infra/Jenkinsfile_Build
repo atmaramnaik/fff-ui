@@ -29,9 +29,10 @@ pipeline {
         }
         stage('Publish Docker Image') {
                     steps {
-                            withDockerRegistry([ credentialsId: "atmaram-dockerhub", url: "" ]) {
-                              sh 'docker push atmaram/fff-ui:$IMAGE_TAG'
-                    }
+                        withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'atmaram-dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
+                        	sh "docker login --password=${PASSWORD} --username=${USERNAME}"
+                        	sh 'docker push atmaram/fff-ui:$IMAGE_TAG'
+                        }
               }
         }
 

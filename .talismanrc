@@ -5,3 +5,7 @@ fileignoreconfig:
 - filename: app/package-lock.json
   checksum: 0b0dd5959e3b336faf9a3ac7b94c784adeb7ba647e9625f98015d822650f587c
   ignore_detectors: []
+- filename: infra/Jenkinsfile_Build
+  checksum: 9670d02fd19f4418b34195600fdfe3bf80f14af1e79f6e8438e4c3d83b6071f1
+  ignore_detectors: []
+
