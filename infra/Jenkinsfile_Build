@@ -26,6 +26,7 @@ pipeline {
             steps {
                 sh 'echo  $GIT_SHA'
                 sh 'ls -al'
+                sh 'cd app && docker build -t atmaram/fff-ui .'
             }
         }
 
