@@ -6,7 +6,7 @@ pipeline {
         SERVICE_NAME = 'fff-ui'
     }
     stages {
-        stage('Checkout SCM') {
+        stage('Checkout Repo') {
             steps {
                 script{
                     def scmVar = checkout([$class: 'GitSCM', \
