@@ -1,0 +1,29 @@
+pipeline {
+    agent {
+        label 'Kubernetes'
+    }
+    environment {
+        SERVICE_NAME = 'fff-ui'
+    }
+    stages {
+        stage('Checkout SCM') {
+            steps {
+                script{
+                    def scmVar = checkout([$class: 'GitSCM', \
+                    branches: [[name: '*/master']], \
+                    userRemoteConfigs: [[credentialsId: 'atmaram-github',
+                                         url: "https://github.com/atmaramnaik/$SERVICE_NAME"]]])
+
+                    env.IMAGE_TAG = env.BUILD_NUMBER + '-' + scmVar.GIT_COMMIT.substring(0,7)
+                    env.GIT_SHA = scmVar.GIT_COMMIT
+                }
+            }
+        }
+        stage('Build Docker Image') {
+            steps {
+                sh 'ls -al'
+            }
+        }
+
+    }
+}

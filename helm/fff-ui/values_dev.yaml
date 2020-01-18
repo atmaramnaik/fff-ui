@@ -1,0 +1,23 @@
+replicaCount: 2
+
+image:
+  repository: atmaram/vodqa-2019-sample-site
+  tag: latest
+  pullPolicy: Always
+
+targetEnv:
+  name: Devlopment
+
+service:
+  name: ui
+  port: 80
+  targetPort: 80
+  nodePort: 30100
+
+resources:
+   limits:
+     cpu: 300m
+     memory: 300Mi
+   requests:
+     cpu: 100m
+     memory: 128Mi

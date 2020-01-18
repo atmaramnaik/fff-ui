@@ -1,0 +1,7 @@
+fileignoreconfig:
+- filename: app/next-env.d.ts
+  checksum: 4cb22ce0d7631fdef1a219c01c0bc29fb26981984722707abdd1df5c7d1555aa
+  ignore_detectors: []
+- filename: app/package-lock.json
+  checksum: 0b0dd5959e3b336faf9a3ac7b94c784adeb7ba647e9625f98015d822650f587c
+  ignore_detectors: []
