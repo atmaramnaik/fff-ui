@@ -14,10 +14,11 @@ pipeline {
                     userRemoteConfigs: [[credentialsId: 'atmaram-github',
                                          url: "https://github.com/atmaramnaik/$SERVICE_NAME"]]])
 
-
-                    env.GIT_SHA = scmVar.GIT_COMMIT
-
-
+                    sh 'git rev-parse HEAD > GIT_SHA'
+                    sh 'cat GIT_SHA'
+                    git_sha = readFile('GIT_SHA').trim()
+                    env.GIT_SHA = git_sha
+                    env.IMAGE_TAG = env.BUILD_NUMBER + '-' + git_sha.substring(0,7)
                 }
             }
         }
