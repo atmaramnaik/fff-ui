@@ -16,11 +16,14 @@ pipeline {
 
 
                     env.GIT_SHA = scmVar.GIT_COMMIT
+
+
                 }
             }
         }
         stage('Build Docker Image') {
             steps {
+                sh 'echo  $GIT_SHA'
                 sh 'ls -al'
             }
         }
