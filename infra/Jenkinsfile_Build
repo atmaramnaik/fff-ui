@@ -14,7 +14,7 @@ pipeline {
                     userRemoteConfigs: [[credentialsId: 'atmaram-github',
                                          url: "https://github.com/atmaramnaik/$SERVICE_NAME"]]])
 
-                    env.IMAGE_TAG = env.BUILD_NUMBER + '-' + scmVar.GIT_COMMIT.substring(0,7)
+
                     env.GIT_SHA = scmVar.GIT_COMMIT
                 }
             }
