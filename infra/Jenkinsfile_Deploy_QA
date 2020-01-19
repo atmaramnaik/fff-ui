@@ -34,7 +34,7 @@ pipeline {
         stage('Deploy Service to QA Environment') {
             steps {
                 sh "helm upgrade --install --namespace $NAMESPACE \
-                -f $WORKSPACE/helm/$SERVICE_NAME/values_dev.yaml $SERVICE_NAME-$NAMESPACE \
+                -f $WORKSPACE/helm/$SERVICE_NAME/values_qa.yaml $SERVICE_NAME-$NAMESPACE \
                 --set image.tag=${IMAGE_TAG} $WORKSPACE/helm/$SERVICE_NAME"
 
             }
