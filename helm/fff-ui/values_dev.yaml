@@ -1,7 +1,7 @@
 replicaCount: 2
 
 image:
-  repository: atmaram/vodqa-2019-sample-site
+  repository: atmaram/fff-ui
   tag: latest
   pullPolicy: Always
 
