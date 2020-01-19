@@ -22,7 +22,7 @@ pipeline {
             steps {
                 sh "helm upgrade --install --namespace $NAMESPACE \
                     -f $WORKSPACE/helm/$SERVICE_NAME/values_prod.yaml $SERVICE_NAME-$NAMESPACE \
-                    --set image.tag=${params.IMAGE_TAG} $WORKSPACE/helm/$SERVICE_NAME"
+                    $WORKSPACE/helm/$SERVICE_NAME --set image.tag=${params.IMAGE_TAG}"
             }
         }
     }
