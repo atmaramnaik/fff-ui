@@ -27,7 +27,7 @@ pipeline {
             steps {
                 script {
                      IMAGE_TAG = sh(returnStdout: true, script: 'head -n 1 artifacts.txt')
-                     env.IMAGE_TAG = IMAGE_TAG.replaceAll("\\s","")
+                     env.IMAGE_TAG = IMAGE_TAG.replaceAll("\\s","").trim()
                 }
             }
         }
