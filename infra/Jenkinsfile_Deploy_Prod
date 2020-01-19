@@ -26,10 +26,4 @@ pipeline {
             }
         }
     }
-    post {
-        success {
-            // Trigger Prod Deployment
-            build job: 'deploy-prod-fff-ui', propagate: false, wait: false
-        }
-    }
 }
