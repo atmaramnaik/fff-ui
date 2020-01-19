@@ -26,8 +26,8 @@ pipeline {
         stage('Get Image Tag from Copied Artifacts') {
             steps {
                 script {
-                    IMAGE_TAG = readFile('artifacts.txt')
-                    env.IMAGE_TAG = IMAGE_TAG.replaceAll("\\s","")
+                     IMAGE_TAG = sh(returnStdout: true, script: 'head -n 1 artifacts.txt')
+                     env.IMAGE_TAG = IMAGE_TAG.replaceAll("\\s","")
                 }
             }
         }
